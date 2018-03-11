@@ -1,0 +1,36 @@
+Partlist
+
+Exported from uplink.sch at 3/11/2018 12:58 PM
+
+EAGLE Version 8.7.0 Copyright (c) 1988-2018 Autodesk, Inc.
+
+Assembly variant: 
+
+Part     Value          Device                    Package      Library             Sheet
+
+1117     REG1117        REG1117                   SOT223       burr-brown          1
+C5       100uF          C-USC0805                 C0805        rcl                 1
+C6       10uF           C-USC0805                 C0805        rcl                 1
+CON1                    LEDCHIPLED_0805           CHIPLED_0805 adafruit            1
+CON2                    LEDCHIPLED_0805           CHIPLED_0805 adafruit            1
+DISP     MMBT3906LT1SMD MMBT3906LT1SMD            SOT23-BEC    transistor-pnp      1
+DOWN                    MMBT3904LT1-NPN-SOT23-BEC SOT23-BEC    transistor-neu-to92 1
+DOWN1                   MMBT3904LT1-NPN-SOT23-BEC SOT23-BEC    transistor-neu-to92 1
+DOWN2                   MMBT3904LT1-NPN-SOT23-BEC SOT23-BEC    transistor-neu-to92 1
+ENDISP                  MMBT3904LT1-NPN-SOT23-BEC SOT23-BEC    transistor-neu-to92 1
+ESP12                   ESP-12                    ESP-12       adafruit            1
+PWR                     LEDCHIPLED_0805           CHIPLED_0805 adafruit            1
+R1       1k?            R-US_M0805                M0805        adafruit            1
+R2       1k?            R-US_M0805                M0805        adafruit            1
+R3       50?            R-US_M0805                M0805        adafruit            1
+R4       1k?            R-US_M0805                M0805        adafruit            1
+R5       50?            R-US_M0805                M0805        adafruit            1
+R6       1k?            R-US_M0805                M0805        adafruit            1
+R7       1k?            R-US_M0805                M0805        adafruit            1
+R8       1k?            R-US_M0805                M0805        adafruit            1
+R9       50?            R-US_M0805                M0805        adafruit            1
+R10      1k?            R-US_M0805                M0805        adafruit            1
+SERIAL                  PINHD-2X3                 2X03         pinhead             1
+UL-IN    0446200001     0446200001                0446200001   con-molex           1
+UL-OUT   0446200001     0446200001                0446200001   con-molex           1
+UP                      MMBT3904LT1-NPN-SOT23-BEC SOT23-BEC    transistor-neu-to92 1
