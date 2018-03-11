@@ -1,0 +1,5 @@
+WifiPassword.incl
+CMakeLists.txt
+cmake-build-debug/
+.idea/
+firmware/
