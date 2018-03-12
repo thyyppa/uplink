@@ -1,6 +1,8 @@
+#include <pins.h>
 #include "input_handler.h"
 
 LOCAL os_timer_t action_timer;
+bool             enable_display = false;
 
 void input_handler( char *input )
 {
@@ -16,6 +18,9 @@ void input_handler( char *input )
             break;
         case 's':
             display( input );
+            break;
+        case 'o':
+            overrideDisplay( input );
             break;
         default:
             stop();
@@ -58,4 +63,24 @@ void display( char *data )
     int num = atoi( data );
     os_printf( "Set display to: %d\n", num );
     tcp_send( "Setting display!\n" );
+
+    overrideDisplay( "o1" );
+}
+
+void overrideDisplay( char *data )
+{
+    // pop off the initial command character
+    os_memmove( data, data + 1, strlen( data ));
+
+    switch ( data[ 0 ] )
+    {
+        case '1':
+            pin_high( GPIO_ENDISP );
+            enable_display = true;
+            break;
+        default:
+            enable_display = false;
+            pin_low( GPIO_ENDISP );
+    }
+
 }
