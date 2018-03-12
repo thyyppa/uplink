@@ -24,5 +24,6 @@ void overrideDisplay();
 void releaseDisplay();
 void reboot();
 void help();
+void arrow_key( char *input );
 
 #endif //input_handler_h

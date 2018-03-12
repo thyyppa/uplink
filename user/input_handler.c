@@ -34,6 +34,10 @@ void input_handler( char *input )
         case 'h':
             help();
             break;
+        case 0x1b:
+            arrow_key( input );
+            break;
+        case 'x':
         default:
             stop();
     }
@@ -58,6 +62,28 @@ void help()
 {
     tcp_send( HELP_MSG );
     DEBUG( HELP_MSG );
+}
+
+void arrow_key( char *input )
+{
+    if ( input[ 1 ] != '[' )
+    {
+        DEBUG( "not arrow key?" );
+        return;
+    }
+
+    switch ( input[ 2 ] )
+    {
+        case 'A':
+            move_up();
+            break;
+        case 'B':
+            move_down();
+            break;
+        default:
+            DEBUG( "Unknown key: %s\n", input );
+
+    }
 }
 
 void move_up()
