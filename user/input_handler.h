@@ -22,5 +22,6 @@ void startActionTimeout();
 void displaySerial( uint32 data );
 void overrideDisplay();
 void releaseDisplay();
+void reboot();
 
 #endif //input_handler_h

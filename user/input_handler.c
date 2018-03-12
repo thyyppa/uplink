@@ -28,6 +28,9 @@ void input_handler( char *input )
         case 'r':
             releaseDisplay();
             break;
+        case 'x':
+            reboot();
+            break;
         default:
             stop();
     }
@@ -38,6 +41,11 @@ void startActionTimeout()
     os_timer_disarm( &action_timer );
     os_timer_setfn( &action_timer, (os_timer_func_t *) stop );
     os_timer_arm( &action_timer, ACTION_DURATION, 0 );
+}
+
+void reboot()
+{
+    system_restart();
 }
 
 void move_up()
