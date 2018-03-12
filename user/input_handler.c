@@ -1,4 +1,3 @@
-#include <pins.h>
 #include "input_handler.h"
 
 LOCAL os_timer_t serial_timer;

@@ -7,6 +7,7 @@
 #include "user_config.h"
 #include "osapi.h"
 #include <tcp.h>
+#include <pins.h>
 
 #define INPUT_HANDLER input_handler
 
