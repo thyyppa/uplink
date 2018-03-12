@@ -18,7 +18,12 @@ void enable_microsecond_timer()
 
 void set_pins_to_output()
 {
-    //
+    pin_enable( GPIO_UP );
+    pin_enable( GPIO_DOWN );
+    pin_enable( GPIO_ENDISP );
+    pin_enable( GPIO_SIGDISP );
+    pin_enable( GPIO_LED_ACT );
+    pin_enable( GPIO_LED_CONN );
 }
 
 void set_uart_baud( uint32 baud )

@@ -36,6 +36,7 @@ void startActionTimeout()
 
 void move_up()
 {
+    pin_high( GPIO_UP );
     os_printf( "Up!\n" );
     tcp_send( "Moving up!\n" );
     startActionTimeout();
@@ -43,6 +44,7 @@ void move_up()
 
 void move_down()
 {
+    pin_high( GPIO_DOWN );
     os_printf( "Down!\n" );
     tcp_send( "Moving down!\n" );
     startActionTimeout();
@@ -50,6 +52,8 @@ void move_down()
 
 void stop()
 {
+    pin_low( GPIO_DOWN );
+    pin_low( GPIO_UP );
     os_printf( "Stop!\n" );
     tcp_send( "Stopping motion!\n" );
     os_timer_disarm( &action_timer );
