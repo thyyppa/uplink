@@ -18,5 +18,8 @@ void move_down();
 void stop();
 void display( char *data );
 void startActionTimeout();
+void displaySerial( uint32 data );
+void overrideDisplay();
+void releaseDisplay();
 
 #endif //input_handler_h
