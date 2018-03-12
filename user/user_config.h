@@ -21,4 +21,10 @@
 #define TCP_PORT 1112
 #endif
 
+#ifdef DEBUG_MSGS
+#define DEBUG(...) os_printf( __VA_ARGS__ );
+#else
+#define DEBUG(...)
+#endif
+
 #endif //user_config_h

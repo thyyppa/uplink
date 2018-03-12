@@ -71,15 +71,15 @@ void ICACHE_FLASH_ATTR start_tcp_server( uint32 port )
         switch ( status )
         {
             case STATION_NO_AP_FOUND:
-                os_printf( "Connection Failed: SSID Not Found\n" );
+                DEBUG( "Connection Failed: SSID Not Found\n" );
                 return;
 
             case STATION_WRONG_PASSWORD:
-                os_printf( "Connection Failed: Wrong Password\n" );
+                DEBUG( "Connection Failed: Wrong Password\n" );
                 return;
 
             case STATION_CONNECT_FAIL:
-                os_printf( "Connection failed for no reason\n" );
+                DEBUG( "Connection failed for no reason\n" );
                 return;
 
             default:

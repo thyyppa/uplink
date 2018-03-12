@@ -10,7 +10,7 @@ bool             enable_display = false;
 
 void input_handler( char *input )
 {
-    os_printf( "input: %s\n", input );
+    DEBUG( "input: %s\n", input );
 
     switch ( input[ 0 ] )
     {
@@ -44,7 +44,7 @@ void startActionTimeout()
 void move_up()
 {
     pin_high( GPIO_UP );
-    os_printf( "Up!\n" );
+    DEBUG( "Up!\n" );
     tcp_send( "Moving up!\n" );
     startActionTimeout();
 }
@@ -52,7 +52,7 @@ void move_up()
 void move_down()
 {
     pin_high( GPIO_DOWN );
-    os_printf( "Down!\n" );
+    DEBUG( "Down!\n" );
     tcp_send( "Moving down!\n" );
     startActionTimeout();
 }
@@ -61,7 +61,7 @@ void stop()
 {
     pin_low( GPIO_DOWN );
     pin_low( GPIO_UP );
-    os_printf( "Stop!\n" );
+    DEBUG( "Stop!\n" );
     tcp_send( "Stopping motion!\n" );
     os_timer_disarm( &action_timer );
 }
@@ -82,7 +82,7 @@ void display( char *data )
 
 void overrideDisplay()
 {
-    os_printf( "enable display\n" );
+    DEBUG( "enable display\n" );
     pin_high( GPIO_ENDISP );
     enable_display = true;
 
@@ -93,7 +93,7 @@ void overrideDisplay()
 
 void releaseDisplay()
 {
-    os_printf( "release display\n" );
+    DEBUG( "release display\n" );
     pin_low( GPIO_ENDISP );
     enable_display = false;
 }
@@ -105,11 +105,11 @@ void displaySerial( uint32 data )
     switch ( data & 0x1 )
     {
         case 0:
-            os_printf( "0" );
+            DEBUG( "0" );
             pin_low( GPIO_SIGDISP );
             break;
         case 1:
-            os_printf( "1" );
+            DEBUG( "1" );
             pin_high( GPIO_SIGDISP );
             break;
     }
@@ -124,7 +124,7 @@ void displaySerial( uint32 data )
         data = bit_sequence;
         if ( !enable_display )
         {
-            os_printf( "display not enabled. stop sending serial\n" );
+            DEBUG( "display not enabled. stop sending serial\n" );
             return;
         }
     }

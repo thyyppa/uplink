@@ -5,6 +5,7 @@ SDK     = /opt/esp-open-sdk/sdk
 ESPTOOL = /usr/bin/esptool
 ESPPORT = /dev/ttyUSB0
 ESPBAUD = 115200
+DEBUG = -DDEBUG_MSGS
 
 FIRMWARE = firmware
 APP_NAME = uplink
@@ -22,7 +23,9 @@ LD_SCRIPT := $(SDK)/ld/eagle.app.v6.ld
 FW_ADDR_1 = 0x00000
 FW_ADDR_2 = 0x40000
 
-CFLAGS	= -Os -std=c11 -g -O2 -Wpointer-arith -Wundef -Werror -Wl,-EL -fno-inline-functions -nostdlib -mlongcalls -mtext-section-literals -D__ets__ -DICACHE_FLASH
+CFLAGS	= -Os -std=c11 -g -O2 -Wpointer-arith -Wundef -Werror -Wl,-EL \
+		  -fno-inline-functions -nostdlib -mlongcalls -mtext-section-literals \
+		  -D__ets__ -DICACHE_FLASH $(DEBUG)
 LDFLAGS	= -nostdlib -Wl,--no-check-sections -u call_user_start -Wl,-static
 
 all: mkdirs $(FIRMWARE)/$(APP_NAME) clean
