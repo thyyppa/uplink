@@ -28,7 +28,7 @@ void input_handler( char *input )
         case 'r':
             releaseDisplay();
             break;
-        case 'x':
+        case 'b':
             reboot();
             break;
         default:
@@ -45,6 +45,9 @@ void startActionTimeout()
 
 void reboot()
 {
+    DEBUG("Rebooting!\n")
+    tcp_send("Rebooting!\n");
+    tcp_disconnect();
     system_restart();
 }
 

@@ -60,6 +60,12 @@ void ICACHE_FLASH_ATTR tcp_send( char *string )
     tcp_server_multi_send( string );
 }
 
+void ICACHE_FLASH_ATTR tcp_disconnect()
+{
+    espconn_disconnect( &esp_conn );
+    espconn_delete( &esp_conn );
+}
+
 void ICACHE_FLASH_ATTR start_tcp_server( uint32 port )
 {
     os_timer_disarm( &waiting_for_wifi_timer );
