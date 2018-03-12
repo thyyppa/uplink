@@ -3,6 +3,8 @@
 
 #define ACTION_DURATION 1000
 
+#define USE_US_TIMER
+
 #define GPIO_UP 12
 #define GPIO_DOWN 13
 #define GPIO_ENDISP 16

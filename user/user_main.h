@@ -16,5 +16,6 @@
 
 void set_uart_baud( uint32 baud );
 void set_pins_to_output();
+void enable_microsecond_timer();
 
 #endif //user_main_h
