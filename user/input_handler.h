@@ -23,5 +23,6 @@ void displaySerial( uint32 data );
 void overrideDisplay();
 void releaseDisplay();
 void reboot();
+void help();
 
 #endif //input_handler_h

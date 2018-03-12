@@ -27,4 +27,16 @@
 #define DEBUG(...)
 #endif
 
+#define HELP_MSG \
+"\n\n\n----------\n\n" \
+"u: Move up\n" \
+"d: Move down\n" \
+"s[height]: Set display to height\n" \
+"o: Override display\n" \
+"r: Release control of display\n" \
+"x: Stop\n" \
+"b: Reboot\n" \
+"h: Help\n" \
+"\n----------\n\n\n" \
+
 #endif //user_config_h

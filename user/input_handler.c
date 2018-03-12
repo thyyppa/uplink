@@ -31,6 +31,9 @@ void input_handler( char *input )
         case 'b':
             reboot();
             break;
+        case 'h':
+            help();
+            break;
         default:
             stop();
     }
@@ -49,6 +52,12 @@ void reboot()
     tcp_send("Rebooting!\n");
     tcp_disconnect();
     system_restart();
+}
+
+void help()
+{
+    tcp_send( HELP_MSG );
+    DEBUG( HELP_MSG );
 }
 
 void move_up()
