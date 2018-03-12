@@ -3,6 +3,13 @@
 
 #define ACTION_DURATION 1000
 
+#define GPIO_UP 12
+#define GPIO_DOWN 13
+#define GPIO_ENDISP 16
+#define GPIO_SIGDISP 14
+#define GPIO_LED_ACT 5
+#define GPIO_LED_CONN 4
+
 #ifndef ESPBAUD
 #define ESPBAUD 115200
 #endif
