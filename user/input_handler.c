@@ -1,3 +1,4 @@
+#include <osapi.h>
 #include "input_handler.h"
 
 LOCAL os_timer_t serial_timer;
@@ -79,7 +80,7 @@ void arrow_key( char *input )
             move_down();
             break;
         default:
-            INFO( "Unknown key!");
+            INFO( "Unknown key!" );
 
     }
 }
@@ -173,5 +174,5 @@ void displaySerial( uint32 data )
     }
 
     os_timer_setfn( &serial_timer, (os_timer_func_t *) displaySerial, data );
-    os_timer_arm_us( &serial_timer, 104, 0 );
+    ets_timer_arm_new( &serial_timer, 104, 0, 0 );
 }
