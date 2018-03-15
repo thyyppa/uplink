@@ -64,7 +64,7 @@ $(FIRMWARE)/$(APP_NAME): $(APP_NAME).out
 
 flash: all
 	@echo "Flashing to $(ESPPORT)..."
-	$(ESPTOOL) --port $(ESPPORT) write_flash \
+	$(ESPTOOL) -p $(ESPPORT) -b 460800 write_flash -fm dio \
 	$(FW_ADDR_1) $(FIRMWARE)/$(APP_NAME)$(FW_ADDR_1).bin \
 	$(FW_ADDR_2) $(FIRMWARE)/$(APP_NAME)$(FW_ADDR_2).bin
 
