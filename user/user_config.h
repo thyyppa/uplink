@@ -1,7 +1,7 @@
 #ifndef user_config_h
 #define user_config_h
 
-#define ACTION_DURATION 1000
+#define ACTION_DURATION 750
 #define DISPLAY_OVERRIDE_DURATION 10000
 
 #define USE_US_TIMER
