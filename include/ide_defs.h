@@ -16,5 +16,8 @@ void ets_memset( void *data, int a, int length );
 void ets_memcpy( void *to, void *data, int length );
 void ets_memmove( void *to, void *data, int length );
 uint16 ets_strlen( char *string );
+uint16 ets_sprintf( char *string, ... );
+
+typedef uint32 uint32_t;
 
 #endif //ide_defs_h

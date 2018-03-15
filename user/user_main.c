@@ -9,6 +9,7 @@ void ICACHE_FLASH_ATTR user_init()
     connect_wifi( WIFI_SSID, WIFI_PASSWORD );
     set_input_handler( INPUT_HANDLER );
     start_tcp_server( TCP_PORT );
+    INFO( "Initialized!" );
 }
 
 void enable_microsecond_timer()

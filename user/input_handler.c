@@ -52,23 +52,21 @@ void startActionTimeout()
 
 void reboot()
 {
-    DEBUG("Rebooting!\n")
-    tcp_send("Rebooting!\n");
+    INFO( "Rebooting!" );
     tcp_disconnect();
     system_restart();
 }
 
 void help()
 {
-    tcp_send( HELP_MSG );
-    DEBUG( HELP_MSG );
+    INFO( HELP_MSG );
 }
 
 void arrow_key( char *input )
 {
     if ( input[ 1 ] != '[' )
     {
-        DEBUG( "not arrow key?" );
+        INFO( "not arrow key?" );
         return;
     }
 
@@ -81,7 +79,7 @@ void arrow_key( char *input )
             move_down();
             break;
         default:
-            DEBUG( "Unknown key: %s\n", input );
+            INFO( "Unknown key!");
 
     }
 }
@@ -89,18 +87,16 @@ void arrow_key( char *input )
 void move_up()
 {
     pin_high( GPIO_UP );
-    DEBUG( "Up!\n" );
-    tcp_send( "Moving up!\n" );
     pin_high( GPIO_LED_ACT );
+    INFO( "Moving Up!" );
     startActionTimeout();
 }
 
 void move_down()
 {
     pin_high( GPIO_DOWN );
-    DEBUG( "Down!\n" );
-    tcp_send( "Moving down!\n" );
     pin_high( GPIO_LED_ACT );
+    INFO( "Moving Down!" );
     startActionTimeout();
 }
 
@@ -108,9 +104,8 @@ void stop()
 {
     pin_low( GPIO_DOWN );
     pin_low( GPIO_UP );
-    DEBUG( "Stop!\n" );
-    tcp_send( "Stopping motion!\n" );
     pin_low( GPIO_LED_ACT );
+    INFO( "Stopping motion!" );
     os_timer_disarm( &action_timer );
 }
 
@@ -122,7 +117,7 @@ void display( char *data )
     int num = atoi( data );
 
     bit_sequence = (( num << 1 ) << 10 ) | ( 257 << 1 );
-    tcp_send( "Setting display!\n" );
+    INFO( "Setting display!" );
 
     overrideDisplay();
     displaySerial( bit_sequence );
@@ -130,7 +125,7 @@ void display( char *data )
 
 void overrideDisplay()
 {
-    DEBUG( "enable display\n" );
+    INFO( "Enable Display!" );
     pin_high( GPIO_ENDISP );
     enable_display = 1;
 
@@ -141,7 +136,7 @@ void overrideDisplay()
 
 void releaseDisplay()
 {
-    DEBUG( "release display\n" );
+    INFO( "Releasing Display!" );
     pin_low( GPIO_ENDISP );
     enable_display = 0;
 }
@@ -172,7 +167,7 @@ void displaySerial( uint32 data )
         data = bit_sequence;
         if ( !enable_display )
         {
-            DEBUG( "display not enabled. stop sending serial\n" );
+            DEBUG( "display not enabled. stop sending serial" );
             return;
         }
     }

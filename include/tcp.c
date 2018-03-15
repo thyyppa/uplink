@@ -3,7 +3,7 @@
 struct espconn esp_conn;
 esp_tcp        esptcp;
 os_timer_t waiting_for_wifi_timer;
-handler              *tcp_input_handler;
+handler        *tcp_input_handler;
 
 void ICACHE_FLASH_ATTR tcpserver_init( uint32 port )
 {
@@ -15,6 +15,7 @@ void ICACHE_FLASH_ATTR tcpserver_init( uint32 port )
     espconn_regist_connectcb( &esp_conn, tcp_server_listen );
     espconn_accept( &esp_conn );
     pin_high( GPIO_LED_CONN );
+    INFO( "TCP Server Initialized!\n" );
 }
 
 void ICACHE_FLASH_ATTR set_input_handler( handler cb )
@@ -30,7 +31,7 @@ LOCAL void ICACHE_FLASH_ATTR tcp_server_recv_cb( void *arg, char *received, unsi
 LOCAL void ICACHE_FLASH_ATTR tcp_server_listen( void *espconn )
 {
     espconn_regist_recvcb( espconn, tcp_server_recv_cb );
-    tcp_server_multi_send( "Connected!\n" );
+    INFO( "Connected!\n" );
 }
 
 LOCAL void tcp_server_multi_send( char *message )
