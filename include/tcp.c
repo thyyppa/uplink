@@ -1,8 +1,8 @@
 #include "tcp.h"
 
-LOCAL struct espconn esp_conn;
-LOCAL esp_tcp        esptcp;
-LOCAL os_timer_t     waiting_for_wifi_timer;
+struct espconn esp_conn;
+esp_tcp        esptcp;
+os_timer_t waiting_for_wifi_timer;
 handler              *tcp_input_handler;
 
 void ICACHE_FLASH_ATTR tcpserver_init( uint32 port )
