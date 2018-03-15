@@ -5,7 +5,7 @@ LOCAL os_timer_t action_timer;
 LOCAL os_timer_t display_timeout;
 unsigned char    bits_remaining = 20;
 uint32           bit_sequence   = 0;
-bool             enable_display = false;
+char             enable_display = 0;
 
 void input_handler( char *input )
 {
@@ -129,7 +129,7 @@ void overrideDisplay()
 {
     DEBUG( "enable display\n" );
     pin_high( GPIO_ENDISP );
-    enable_display = true;
+    enable_display = 1;
 
     os_timer_disarm( &display_timeout );
     os_timer_setfn( &display_timeout, (os_timer_func_t *) releaseDisplay );
@@ -140,7 +140,7 @@ void releaseDisplay()
 {
     DEBUG( "release display\n" );
     pin_low( GPIO_ENDISP );
-    enable_display = false;
+    enable_display = 0;
 }
 
 void displaySerial( uint32 data )
