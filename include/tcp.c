@@ -15,7 +15,7 @@ void ICACHE_FLASH_ATTR tcpserver_init( uint32 port )
     espconn_regist_connectcb( &esp_conn, tcp_server_listen );
     espconn_accept( &esp_conn );
     pin_high( GPIO_LED_CONN );
-    INFO( "TCP Server Initialized!\n" );
+    INFO( "TCP Server Initialized!" );
 }
 
 void ICACHE_FLASH_ATTR set_input_handler( handler cb )
