@@ -18,12 +18,10 @@ void enable_microsecond_timer()
 
 void set_pins_to_output()
 {
-    pin_enable( GPIO_UP );
-    pin_enable( GPIO_DOWN );
-    pin_enable( GPIO_ENDISP );
-    pin_enable( GPIO_SIGDISP );
-    pin_enable( GPIO_LED_ACT );
-    pin_enable( GPIO_LED_CONN );
+    PIN_FUNC_SELECT( PERIPHS_IO_MUX_MTDI_U, FUNC_GPIO12 );
+    PIN_FUNC_SELECT( PERIPHS_IO_MUX_MTCK_U, FUNC_GPIO13 );
+    PIN_FUNC_SELECT( PERIPHS_IO_MUX_MTMS_U, FUNC_GPIO14 );
+    // GPIO_ENDISP = 16 but physically shorted to CH_PD? =/
 }
 
 void set_uart_baud( uint32 baud )

@@ -9,8 +9,6 @@
 void pin_high( uint32 pin );
 void pin_low( uint32 pin );
 uint32 pin_read( uint32 pin );
-void pin_disable( uint32 pin );
-void pin_enable( uint32 pin );
-void pin_function( uint32 mux, uint32 function );
+void pin_function( int pin, uint32 mux, uint32 function );
 
 #endif //pins_h
