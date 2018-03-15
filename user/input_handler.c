@@ -91,6 +91,7 @@ void move_up()
     pin_high( GPIO_UP );
     DEBUG( "Up!\n" );
     tcp_send( "Moving up!\n" );
+    pin_high( GPIO_LED_ACT );
     startActionTimeout();
 }
 
@@ -99,6 +100,7 @@ void move_down()
     pin_high( GPIO_DOWN );
     DEBUG( "Down!\n" );
     tcp_send( "Moving down!\n" );
+    pin_high( GPIO_LED_ACT );
     startActionTimeout();
 }
 
@@ -108,6 +110,7 @@ void stop()
     pin_low( GPIO_UP );
     DEBUG( "Stop!\n" );
     tcp_send( "Stopping motion!\n" );
+    pin_low( GPIO_LED_ACT );
     os_timer_disarm( &action_timer );
 }
 
